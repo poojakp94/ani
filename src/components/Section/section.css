@@ -1,0 +1,9 @@
+.rec.rec-arrow:disabled {
+    visibility: hidden;
+}
+
+
+
+.style-example .rec-pagination button {
+    display: none;
+}

@@ -68,10 +68,7 @@
     height: 100%;
   }
   
-  .fa-bars {
-    color: #fff;
-  }
-  
+    
   .menu-icon {
     display: none;
   }
@@ -84,6 +81,7 @@
     .nav-menu {
       display: flex;
       flex-direction: column;
+      justify-content: start;
       width: 100%;
       height: calc(100vh - 80px);
       position: absolute;
@@ -123,7 +121,6 @@
     }
   
     .navbar-logo {
-      
       position: absolute;
       top: 0;
       left: 0;
@@ -140,10 +137,7 @@
       cursor: pointer;
     }
   
-    .fa-times {
-      color: #fff;
-      font-size: 2rem;
-    }
+  
   
     .nav-btn {
       display: flex;

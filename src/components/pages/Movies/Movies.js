@@ -1,51 +1,68 @@
-import React, {useEffect, useState} from "react";
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+import data from "./data";
 
 const Wrapper = styled.div`
-    display:grid;
-    grid-template-columns:repeat(3, 470px);
-    gap:10px;
-    padding: 50px;
-    &:hover {
-        transition: all 0.3s ease-out;
-    }
+  padding: 10px;
 `
+const Heading = styled.div`
+  font-size: 2rem;
+  font-family: 'Lobster', cursive;
+`
+const ImgWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  margin-top: 10px;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 411px) {
+    grid-template-columns: 1fr;
+    
+  }
+`;
 
 const DescriptionCard = styled.div`
-    color:#fff;
-    background: #242424;
-    height: 320px;
-    width: 470px; 
-    border-radius: 10px;
-    padding: 10px;
-    // display:flex;
-    // gap:2px;
-`
-
+  color: #fff;
+  background: #242424;
+  padding: 20px 10px 10px;
+`;
+const Img = styled.img`
+  height: 400px;
+  display: block;
+  margin: 0 auto;
+  // width: inherit;
+  // margin: 0 auto;
+`;
 function Movies() {
-    const [studioGhibliFilmData, setStudioGhibliFilmData] = useState([])
-    
-    useEffect(() => {
-  fetch("https://ghibliapi.herokuapp.com/films")
-    .then((response) => response.json())
-    .then((data) => (setStudioGhibliFilmData(data)))
-    .catch((error) => console.log(error))
-    }, []);
-  
   return (
     <Wrapper>
-      {studioGhibliFilmData.map((item) => (
-        <DescriptionCard>
-          <p><b>Title:</b> {item.title}</p>
-          <br/>
-          <p><b>Description:</b> {item.description}</p>
-          <br/>
-          <p><b>Director:</b> {item.director}</p>
-          <br/>
-          <p><b>Release Date:</b> {item.release_date}</p>
-          
-        </DescriptionCard>
-      ))}
+      <Heading>Studio Ghibli Films</Heading>
+      <ImgWrapper>
+        {data.map((item) => (
+          <DescriptionCard key={item.title}>
+            <Img src={item.img} alt={item.alt} />
+            <br />
+            <p>
+              <b>Title:</b> {item.title}
+            </p>
+            <br />
+            <p>
+              <b>Description:</b> {item.description}
+            </p>
+            <br />
+            <p>
+              <b>Director:</b> {item.director}
+            </p>
+            <br />
+            <p>
+              <b>Release Date:</b> {item.release_date}
+            </p>
+          </DescriptionCard>
+        ))}
+      </ImgWrapper>
+      <Heading>Other Movies</Heading>
     </Wrapper>
   );
 }

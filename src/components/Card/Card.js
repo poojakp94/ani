@@ -1,24 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import img1 from './tb.jpg'
+// import img1 from './tb.jpg'
 
 const CardWrapper = styled.div`
-    height: 100px;
-    width: 200px;
+    height: 400px;
+    width: 300px;
+    padding: 0 20px 0 0;
     // border: 1px solid red;
     // border-radius: 8px;
 
 `
 const Img = styled.img`
-    width: inherit;
+    width: 100%;
     height: inherit;
     border-radius: 5px;
 `
 
-function Card() {
+function Card({img}) {
     return (
         <CardWrapper>
-          <Img src={img1}/>  
+          <Img src={img}/>  
         </CardWrapper>
     )
 }

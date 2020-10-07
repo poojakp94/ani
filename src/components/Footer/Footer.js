@@ -1,20 +1,25 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 
 const FooterWrap = styled.footer`
-    height: 200px;
-    width: 100%;
-    padding: 50px;
-    background: #242424;
-    color: #fff;
-`
-
+  height: 80px;
+  width: 100%;
+  padding: 20px;
+  background: #242424;
+  color: #fff;
+  text-align: center;
+`;
+const Title = styled.p`
+  font-family: "Lobster", cursive;
+  
+`;
 function Footer() {
-    return (
-        <FooterWrap>
-           <h3>DeepDiveAnime</h3> 
-        </FooterWrap>
-    )
+  return (
+    <FooterWrap>
+      <Title>DeepDiveAnime</Title>
+      <span>Just for entertainment purpose</span>
+    </FooterWrap>
+  );
 }
 
-export default Footer
+export default Footer;
