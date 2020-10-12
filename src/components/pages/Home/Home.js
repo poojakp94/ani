@@ -1,14 +1,16 @@
 import React from "react";
 import HeroSection from "../../HeroSection/HeroSection";
 import Section from "../../Section/Section";
-import data from "../Movies/data"
+import {MovieData} from "./data"
+import {TvShowsData} from "./data"
 function Home() {
   return (
     <>
       <HeroSection></HeroSection>
-      <Section title="Movies" data={data}></Section>
-      <Section title="TvShows" data={data}></Section>
+      <Section title="Movies" data={MovieData}></Section>
+      <Section title="TvShows" data={TvShowsData}></Section>
       {/* <Section title="Comming soon.."></Section> */}
+      
       
     </>
   );

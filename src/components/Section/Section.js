@@ -1,50 +1,86 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Card from "../Card/Card.js";
-import Carousel from "react-elastic-carousel";
-import "./section.css";
-// import img1 from "../../assets/carousel/your-name.jpg"
-// import data from "../pages/Movies/data";
-const SectionWrapper = styled.div`
-  width: 100%;
-  //   padding: 20px;
-  //   border: 1px solid green;
-`;
-// const CardWrapper = styled.div`
-//   display: grid;
-//   grid-auto-flow: column;
-//   grid-gap: 2rem;
-//   overflow-x: scroll;
+// import "./section.css";
+import ShocaseImg from "../Img&description/ShocaseImg";
 
-// `;
-const Title = styled.p`
-  font-size: 1.5rem;
-  font-weight: 600;
-  padding: 10px 0px 10px 60px;
+const Wrapper = styled.div`
+  width: 100%;
+  padding: 5px;
+  margin: 50px 0px;
 `;
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2, itemsToScroll: 2 },
-  { width: 850, itemsToShow: 3 },
-  { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
-  { width: 1450, itemsToShow: 5 },
-  { width: 1750, itemsToShow: 6 },
-];
+const Heading = styled.div`
+  font-size: 2rem;
+  font-family: "Lobster", cursive;
+  margin-left: 30px;
+`;
+const ImgWrapper = styled.div`
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  margin-top: 10px;
+  @media (max-width: 768px) {
+    // grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 411px) {
+    // grid-template-columns: 1fr;
+  }
+`;
+const Button = styled.button`
+  width: 20px;
+  color: #333;
+  background: #fff;
+  outline: none;
+  border: 1px solid #fff;
+`;
+
 function Section({ title, data }) {
+  let NumOfDisplayItem = 5;
+  let newData = data.slice(0, NumOfDisplayItem);
+  const [dataToRender, setData] = useState(newData);
+  const [NumOfData, setNumOfData] = useState(NumOfDisplayItem);
+
+  const handleIncrement = () => {
+    if (
+      NumOfData >= NumOfDisplayItem &&
+      NumOfData <= data.length - NumOfDisplayItem
+    ) {
+      let initialIndex = NumOfData;
+      let finalIndex = NumOfData + NumOfDisplayItem;
+      let newArray = data.slice(initialIndex, finalIndex);
+      console.log(initialIndex, finalIndex);
+      setNumOfData(finalIndex);
+      setData(newArray);
+    }
+  };
+  const handleDecrement = () => {
+    if (NumOfData >= NumOfDisplayItem * 2) {
+      let initialIndex = NumOfData - NumOfDisplayItem * 2;
+      let finalIndex = NumOfData - NumOfDisplayItem;
+      console.log(initialIndex, finalIndex);
+      let newArray = data.slice(initialIndex, finalIndex);
+      setNumOfData(finalIndex);
+      setData(newArray);
+    }
+  };
   return (
-    <SectionWrapper>
-      <Title>{title}</Title>
-      <Carousel
-        breakPoints={breakPoints}
-        className="rec rec-arrow style-example"
-      >
-        {data.map((item) => (
-          <>
-            <Card img={item.img} alt={item.alt}></Card>
-          </>
+    <Wrapper>
+      <Heading>{title}</Heading>
+      <ImgWrapper>
+        <Button onClick={handleDecrement}>-</Button>
+        {dataToRender.map((item) => (
+          <div key={item.title}>
+            <ShocaseImg
+              src={item.img}
+              title={item.title}
+              description={item.description}
+              date={item.release_date}
+            />
+          </div>
         ))}
-      </Carousel>
-    </SectionWrapper>
+        <Button onClick={handleIncrement}>+</Button>
+      </ImgWrapper>
+      {/* <Heading>TvShows</Heading> */}
+    </Wrapper>
   );
 }
 
