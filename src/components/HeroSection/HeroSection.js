@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
+import "./HeroSection.css"
 import Carousel from "react-elastic-carousel";
 import img1 from "../../assets/carousel/a-silent-voice.jpg";
 import img2 from "../../assets/carousel/banana-fish.jpg";
@@ -38,7 +39,7 @@ function HeroSection() {
   const carouselRef = useRef(0);
   return (
     <Carousel
-    
+      className="addon-style"
       enableAutoPlay
       autoPlaySpeed={delayTime}
       itemsToShow={1}

@@ -45,15 +45,15 @@ const SubContent = styled.div`
 //   color: grey;
 //   margin-top: 6px;
 // `;
-function ShocaseImg({ src, title, description, episodes, score, date }) {
-    // date = date.slice(0, 4)
-  const [isHoverCardShown, setHoverCard] = useState(false);
+function ImgCard({ src, title, description, episodes, score, date }) {
+   
+  const [isCardHovered, setHoverCard] = useState(false);
   return (
     <Card
       onMouseEnter={() => setHoverCard(true)}
       onMouseLeave={() => setHoverCard(false)}
     >
-      {isHoverCardShown ? (
+      {isCardHovered ? (
         <>
           <Img src={src} alt="img"></Img>
           <DescriptionWrapper>
@@ -73,4 +73,4 @@ function ShocaseImg({ src, title, description, episodes, score, date }) {
   );
 }
 
-export default ShocaseImg;
+export default ImgCard;

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 // import Overlay from "../../Overlay/overlay";
-import ShocaseImg from "../../Img&description/ShocaseImg";
+import ImgCard from "../../ImgCard/ImgCard";
 
 const Wrapper = styled.div`
   padding: 20px;
-  // border: 1px solid red;
+  margin-bottom: 200px;
 `;
 const Heading = styled.div`
   font-size: 2rem;
@@ -53,7 +53,7 @@ function TvShows() {
       <ImgWrapper>
         {data.map((item) => (
           <div key={item.mal_id}>
-            <ShocaseImg
+            <ImgCard
               src={item.image_url}
               title={item.title}
               description={item.synopsis}

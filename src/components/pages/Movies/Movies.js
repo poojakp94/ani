@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import data from "./data";
-import ShocaseImg from "../../Img&description/ShocaseImg";
+import ImgCard from "../../ImgCard/ImgCard";
 
 const Wrapper = styled.div`
   padding: 20px;
+  margin-bottom: 200px;
 `;
 const Heading = styled.div`
   font-size: 2rem;
@@ -31,7 +32,7 @@ function Movies() {
       <ImgWrapper>
         {data.map((item) => (
           <div key={item.title}>
-            <ShocaseImg
+            <ImgCard
               src={item.img}
               title={item.title}
               description={item.description}

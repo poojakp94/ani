@@ -7,7 +7,7 @@ import Footer from "./components/Footer/Footer";
 import Home from "./components/pages/Home/Home";
 import Movies from "./components/pages/Movies/Movies";
 import TvShows from "./components/pages/TvShows/TvShows"
-
+import Description from './components/pages/DescriptionCard/Description'
 function App() {
   
 
@@ -18,6 +18,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/movies" component={Movies} />
         <Route path="/tvshows" component={TvShows}/>
+        <Route path="/description" component={Description}/>
       </Switch>
       <Footer/>
     </Router>

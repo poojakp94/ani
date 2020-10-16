@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { Button } from "../Button/Button.js";
+// import { Button } from "../Button/Button.js";
 import "./Navbar.css";
 import { IconContext } from "react-icons/lib";
 function Navbar() {
   const [isclick, setClick] = useState(false);
-  const [button, setButton] = useState(true);
+  // const [button, setButton] = useState(true);
 
   const handleClick = () => setClick(!isclick);
   const closeMobileMenu = () => setClick(false);
 
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
+  // const showButton = () => {
+  //   if (window.innerWidth <= 960) {
+  //     setButton(false);
+  //   } else {
+  //     setButton(true);
+  //   }
+  // };
 
-  window.addEventListener("resize", showButton);
+  // window.addEventListener("resize", showButton);
   return (
     <>
       <IconContext.Provider value={{ color: "#fff" }}>
@@ -55,7 +55,7 @@ function Navbar() {
                   TvShows
                 </Link>
               </li>
-              <li className="nav-btn">
+              {/* <li className="nav-btn">
                 {button ? (
                   <Link to="/signup" className="btn-link">
                     <Button buttonStyle="btn--outline">Know More</Button>
@@ -71,7 +71,7 @@ function Navbar() {
                     </Button>
                   </Link>
                 )}
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>

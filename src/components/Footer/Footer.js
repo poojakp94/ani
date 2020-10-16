@@ -8,13 +8,9 @@ const FooterWrap = styled.footer`
   background: #242424;
   color: #fff;
   text-align: center;
-  margin-top: 200px;
-  // position: sticky;
-  // bottom: 0;
 `;
 const Title = styled.p`
   font-family: "Lobster", cursive;
-  
 `;
 function Footer() {
   return (

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Transition } from "react-transition-group";
+import useWindowSize from "../WindowSize/windowSize";
 import styled from "styled-components";
-// import "./section.css";
-import ShocaseImg from "../Img&description/ShocaseImg";
+import ImgCard from "../ImgCard/ImgCard";
+import "./section.css";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -15,70 +17,101 @@ const Heading = styled.div`
 `;
 const ImgWrapper = styled.div`
   display: flex;
-  gap: 15px;
+  gap: 20px;
   justify-content: space-between;
   margin-top: 10px;
-  @media (max-width: 768px) {
-    // grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 411px) {
-    // grid-template-columns: 1fr;
-  }
 `;
 const Button = styled.button`
   width: 20px;
+  font-size: 2rem;
   color: #333;
   background: #fff;
   outline: none;
   border: 1px solid #fff;
+  transition: transform;
+  &:hover {
+    transform: scale(1.5);
+  }
+`;
+const Article = styled.section`
+  display: flex;
+  // gap: 20px;
+  justify-content: space-between;
 `;
 
 function Section({ title, data }) {
-  let NumOfDisplayItem = 5;
-  let newData = data.slice(0, NumOfDisplayItem);
-  const [dataToRender, setData] = useState(newData);
-  const [NumOfData, setNumOfData] = useState(NumOfDisplayItem);
+  const [itemToDisplay, setItemToDisplay] = useState(5);
+  const [inProp, setInProp] = useState(false);
+  const [startIndex, setStartIndex] = useState(0);
+  const [stopIndex, setStopIndex] = useState(itemToDisplay);
+
+  let windowSize = useWindowSize();
+  useEffect(() => {
+    if (windowSize >= 300 && windowSize <= 400) {
+      setItemToDisplay(1);
+      setStartIndex(0);
+      setStopIndex(1);
+    } else if (windowSize >= 400 && windowSize <= 800) {
+      setItemToDisplay(2);
+      setStartIndex(0);
+      setStopIndex(2);
+    } else {
+      setItemToDisplay(5);
+      setStartIndex(0);
+      setStopIndex(5);
+    }
+  }, [windowSize]);
 
   const handleIncrement = () => {
     if (
-      NumOfData >= NumOfDisplayItem &&
-      NumOfData <= data.length - NumOfDisplayItem
+      stopIndex >= itemToDisplay &&
+      stopIndex <= data.length - itemToDisplay
     ) {
-      let initialIndex = NumOfData;
-      let finalIndex = NumOfData + NumOfDisplayItem;
-      let newArray = data.slice(initialIndex, finalIndex);
-      console.log(initialIndex, finalIndex);
-      setNumOfData(finalIndex);
-      setData(newArray);
+      let startIndex = stopIndex;
+      let finalIndex = stopIndex + itemToDisplay;
+      setInProp(true);
+      setStartIndex(startIndex);
+      setStopIndex(finalIndex);
     }
   };
   const handleDecrement = () => {
-    if (NumOfData >= NumOfDisplayItem * 2) {
-      let initialIndex = NumOfData - NumOfDisplayItem * 2;
-      let finalIndex = NumOfData - NumOfDisplayItem;
-      console.log(initialIndex, finalIndex);
-      let newArray = data.slice(initialIndex, finalIndex);
-      setNumOfData(finalIndex);
-      setData(newArray);
+    if (stopIndex >= itemToDisplay * 2) {
+      let startIndex = stopIndex - itemToDisplay * 2;
+      let finalIndex = stopIndex - itemToDisplay;
+      setStartIndex(startIndex);
+      setStopIndex(finalIndex);
+      setInProp(true);
     }
   };
   return (
     <Wrapper>
       <Heading>{title}</Heading>
-      <ImgWrapper>
-        <Button onClick={handleDecrement}>-</Button>
-        {dataToRender.map((item) => (
-          <div key={item.title}>
-            <ShocaseImg
-              src={item.img}
-              title={item.title}
-              description={item.description}
-              date={item.release_date}
-            />
-          </div>
-        ))}
-        <Button onClick={handleIncrement}>+</Button>
-      </ImgWrapper>
+      <Article>
+        {stopIndex > itemToDisplay ? (
+          <Button onClick={handleDecrement}>
+            <i className="fas fa-angle-left"></i>
+          </Button>
+        ) : (
+          <Button onClick={handleDecrement}></Button>
+        )}
+        <Transition in={inProp} timeout={500}>
+          <ImgWrapper>
+            {data.slice(startIndex, stopIndex).map((item) => (
+              <div key={item.title}>
+                <ImgCard
+                  src={item.img}
+                  title={item.title}
+                  description={item.description}
+                  date={item.release_date}
+                />
+              </div>
+            ))}
+          </ImgWrapper>
+        </Transition>
+        <Button onClick={handleIncrement}>
+          <i className="fas fa-angle-right"></i>
+        </Button>
+      </Article>
       {/* <Heading>TvShows</Heading> */}
     </Wrapper>
   );
