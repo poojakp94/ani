@@ -33,15 +33,13 @@ function TvShows() {
       method: "GET",
       headers: {
         "x-rapidapi-host": "jikan1.p.rapidapi.com",
-        "x-rapidapi-key": `${process.env.REACT_APP_R_API}`,
+        "x-rapidapi-key": `${process.env.REACT_APP_API_K}`,
       },
     })
       .then((response) => {
-        // setData(response.anime);
-        // console.log(response);
         return response.json();
       })
-      .then((data) => setData(data.anime))
+      .then((data) => setData(data.anime) )
       .catch((err) => {
         console.log(err);
       });
