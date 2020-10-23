@@ -46,12 +46,13 @@ function Section({ title, data }) {
   const [stopIndex, setStopIndex] = useState(itemToDisplay);
 
   let windowSize = useWindowSize();
+  console.log(windowSize)
   useEffect(() => {
-    if (windowSize >= 300 && windowSize <= 400) {
+    if (windowSize >= 300 && windowSize <768) {
       setItemToDisplay(1);
       setStartIndex(0);
       setStopIndex(1);
-    } else if (windowSize >= 400 && windowSize <= 800) {
+    } else if (windowSize >= 768 && windowSize <= 800) {
       setItemToDisplay(2);
       setStartIndex(0);
       setStopIndex(2);

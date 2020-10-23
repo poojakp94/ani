@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import data from "./data";
 import ImgCard from "../../ImgCard/ImgCard";
+import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
   padding: 20px;
@@ -31,14 +32,14 @@ function Movies() {
       <Heading>Studio Ghibli Films</Heading>
       <ImgWrapper>
         {data.map((item) => (
-          <div key={item.title}>
+          <Link key={item.title} to="/description">
             <ImgCard
               src={item.img}
               title={item.title}
               description={item.description}
               date={item.release_date}
             />
-          </div>
+          </Link>
         ))}
       </ImgWrapper>
       <Heading>Other Movies</Heading>

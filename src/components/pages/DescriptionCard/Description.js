@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import data from "../Movies/data";
+
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
@@ -36,7 +37,7 @@ const Episodes = styled.p`
   font-size: 1rem;
 `;
 function Description() {
-  console.log(data);
+  
   return (
     <Wrapper>
       <Img src={data[0].img} alt="img"></Img>
