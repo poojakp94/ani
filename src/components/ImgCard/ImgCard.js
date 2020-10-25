@@ -46,7 +46,6 @@ const SubContent = styled.div`
 //   margin-top: 6px;
 // `;
 function ImgCard({ src, title, description, episodes, score, date }) {
-   
   const [isCardHovered, setHoverCard] = useState(false);
   return (
     <Card
@@ -60,7 +59,7 @@ function ImgCard({ src, title, description, episodes, score, date }) {
             <Title>{title}</Title>
             <Description>{description}</Description>
             <SubContent>
-              <p>{date}</p> 
+              <p>{date}</p>
             </SubContent>
             <SubContent>Rating: {score}</SubContent>
             {/* <Episodes>{episodes}</Episodes> */}

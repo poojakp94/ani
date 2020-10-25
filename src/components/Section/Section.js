@@ -13,21 +13,35 @@ const Wrapper = styled.div`
 const Heading = styled.div`
   font-size: 2rem;
   font-family: "Lobster", cursive;
-  margin-left: 30px;
+  margin-left: 50px;
+  @media (max-width: 768px) {
+    margin-left: 110px;
+  }
+  @media (max-width: 415px) {
+    margin-left: 80px;
+  }
 `;
 const ImgWrapper = styled.div`
   display: flex;
-  gap: 20px;
-  justify-content: space-between;
+  gap: 50px;
+  // justify-content: space-between;
   margin-top: 10px;
+  @media (max-width: 768px) {
+    gap: 80px;
+  }
+  // @media (max-width: 415px) {
+  //   // margin-left: 80px;
+  // }
 `;
 const Button = styled.button`
   width: 20px;
+  height: 50px;
+  align-self: center;
   font-size: 2rem;
   color: #333;
   background: #fff;
   outline: none;
-  border: 1px solid #fff;
+  border: 1px solid #333;
   transition: transform;
   &:hover {
     transform: scale(1.5);
@@ -47,11 +61,11 @@ function Section({ title, data }) {
 
   let windowSize = useWindowSize();
   useEffect(() => {
-    if (windowSize >= 300 && windowSize <= 400) {
+    if (windowSize >= 300 && windowSize <768) {
       setItemToDisplay(1);
       setStartIndex(0);
       setStopIndex(1);
-    } else if (windowSize >= 400 && windowSize <= 800) {
+    } else if (windowSize >= 768 && windowSize <= 800) {
       setItemToDisplay(2);
       setStartIndex(0);
       setStopIndex(2);

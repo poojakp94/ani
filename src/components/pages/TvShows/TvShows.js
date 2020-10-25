@@ -20,7 +20,7 @@ const ImgWrapper = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: 1fr 1fr;
   }
-  @media (max-width: 411px) {
+  @media (max-width: 415px) {
     grid-template-columns: 1fr;
   }
 `;
