@@ -1,45 +1,53 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-// import Overlay from "../../Overlay/overlay";
+import styled from 'styled-components';
 import ImgCard from "../../ImgCard/ImgCard";
+import { Link } from 'react-router-dom';
+import HeroSection from "../../HeroSection/HeroSection";
 
 const Wrapper = styled.div`
-  padding: 20px;
-  margin-bottom: 200px;
+  margin-bottom: 150px;
 `;
 const Heading = styled.div`
   font-size: 2rem;
   font-family: "Lobster", cursive;
 `;
 const ImgWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 1rem 1rem;
-  justify-items: center;
-  margin-top: 10px;
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 415px) {
-    grid-template-columns: 1fr;
-  }
+  display: flex;
+    flex-flow: row wrap;
+    gap: 10px 8px;
+    margin: 20px 0;
+    justify-content: space-between;
+    @media (max-width: 415px) {
+      flex-flow: column wrap;
+     }
 `;
+
+const Container = styled.div`
+  width: 100%;
+  margin-top: 10px;
+      padding: 10px;
+     display: flex;
+     flex-direction: column;
+     @media (max-width: 415px) {
+           align-items: center;
+     }
+ `;
 
 function TvShows() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("https://jikan1.p.rapidapi.com/producer/1/1", {
-      method: "GET",
+    fetch('https://jikan1.p.rapidapi.com/producer/1/1', {
+      method: 'GET',
       headers: {
-        "x-rapidapi-host": "jikan1.p.rapidapi.com",
-        "x-rapidapi-key": `${process.env.REACT_APP_API_K}`,
+        'x-rapidapi-key': `${process.env.REACT_APP_API_K}`,
+        'x-rapidapi-host': 'jikan1.p.rapidapi.com',
       },
     })
       .then((response) => {
         return response.json();
       })
-      .then((data) => setData(data.anime) )
+      .then((data) => setData(data.anime))
       .catch((err) => {
         console.log(err);
       });
@@ -47,10 +55,12 @@ function TvShows() {
 
   return (
     <Wrapper>
+      <HeroSection></HeroSection>
+      <Container>
       <Heading>TvShows</Heading>
       <ImgWrapper>
         {data.map((item) => (
-          <div key={item.mal_id}>
+          <Link key={item.mal_id}>
             <ImgCard
               src={item.image_url}
               title={item.title}
@@ -59,10 +69,10 @@ function TvShows() {
               score={item.score}
               date={item.airing_start}
             />
-          </div>
+          </Link>
         ))}
       </ImgWrapper>
-      <Heading>Other Movies</Heading>
+      </Container>
     </Wrapper>
   );
 }

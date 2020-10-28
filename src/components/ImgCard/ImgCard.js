@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
+  position: relative;
   height: 300px;
   width: 240px;
   transition: transform 0.2s;
   &:hover {
     transform: scale(1.2);
+    z-index: 1;
   }
 `;
 const Img = styled.img`
@@ -19,7 +21,6 @@ const DescriptionWrapper = styled.div`
   background: rgba(0, 0, 0, 0.9);
   color: #fff;
   padding: 20px 10px;
-  //   overflow: hidden;
   margin-top: -12px;
 `;
 

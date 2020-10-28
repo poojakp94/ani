@@ -13,14 +13,16 @@ import img8 from "../../assets/carousel/my-neighbor-totoro.jpg"
 
 const ImgWrapper = styled.div`
   width: 100%;
-  heigth: 400px;
+  height: 400px;
+  @media (max-width: 768px) {
+    height: 200px;
+  }
 `;
 const Img = styled.img`
   width: 100%;
-  height: 400px;
+  height: inherit;
   background-size: cover;
-  // border: 1px solid black;
-  @media (max-width: 411px) {
+  @media (max-width: 768px) {
     height: inherit;
   }
 `;
