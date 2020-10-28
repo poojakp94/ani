@@ -5,7 +5,7 @@ const FooterWrap = styled.footer`
   height: 80px;
   width: 100%;
   padding: 20px;
-  background: #242424;
+  background:  #1B2530;
   color: #fff;
   text-align: center;
 `;

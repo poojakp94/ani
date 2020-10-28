@@ -37,7 +37,6 @@ const Episodes = styled.p`
   font-size: 1rem;
 `;
 function Description() {
-  
   return (
     <Wrapper>
       <Img src={data[0].img} alt="img"></Img>
