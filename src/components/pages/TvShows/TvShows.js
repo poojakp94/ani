@@ -14,23 +14,17 @@ const Heading = styled.div`
 const ImgWrapper = styled.div`
   display: flex;
     flex-flow: row wrap;
-    gap: 10px 8px;
+    gap: 10px;
     margin: 20px 0;
-    justify-content: space-between;
-    @media (max-width: 415px) {
-      flex-flow: column wrap;
-     }
+    
 `;
 
 const Container = styled.div`
   width: 100%;
   margin-top: 10px;
-      padding: 10px;
+      padding: 30px;
      display: flex;
      flex-direction: column;
-     @media (max-width: 415px) {
-           align-items: center;
-     }
  `;
 
 function TvShows() {
@@ -60,7 +54,7 @@ function TvShows() {
       <Heading>TvShows</Heading>
       <ImgWrapper>
         {data.map((item) => (
-          <Link key={item.mal_id}>
+          <Link key={item.mal_id} style={{flex: "1 1 240px"}}>
             <ImgCard
               src={item.image_url}
               title={item.title}

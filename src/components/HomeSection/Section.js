@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import ImgCard from '../ImgCard/ImgCard';
+import HomeImgCard from '../HomeImgCard/HomeImgCard';
 import useWindowSize from '../WindowSize/windowSize';
 
 const Wrapper = styled.div`
@@ -102,7 +102,7 @@ const Section = ({ title, data }) => {
         <ImgWrapper>
           {data.slice(startIndex, stopIndex).map((item) => (
             <div key={item.title}>
-              <ImgCard
+              <HomeImgCard
                 src={item.img}
                 title={item.title}
                 description={item.description}

@@ -13,24 +13,18 @@ const Heading = styled.div`
     font-family: "Lobster", cursive;
 `;
 const ImgWrapper = styled.div`
+width: 100%;
     display: flex;
     flex-flow: row wrap;
-    gap: 10px 8px;
+    gap: 10px;
     margin: 20px 0;
-    justify-content: space-between;
-    @media (max-width: 415px) {
-      flex-flow: column wrap;
-     }
 `;
  const Container = styled.div`
       width: 100%;
       margin-top: 10px;
-      padding: 10px;
+      padding: 30px;
      display: flex;
      flex-direction: column;
-     @media (max-width: 415px) {
-           align-items: center;
-     }
  `;
 
 function Movies() {
@@ -41,7 +35,7 @@ function Movies() {
                       <Heading>Studio Ghibli Films</Heading>
                       <ImgWrapper>
                             {data.map((item) => (
-                                  <Link key={item.title} to="/description">
+                                  <Link key={item.title} to="/description" style={{flex: "1 1 240px"}}>
                                         <ImgCard
                                               src={item.img}
                                               title={item.title}

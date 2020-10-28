@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Card = styled.div`
   position: relative;
   height: 300px;
-  width: inherit;
+  width: 240px;
   transition: transform 0.2s;
   &:hover {
     transform: scale(1.2);
@@ -17,7 +17,7 @@ const Img = styled.img`
 `;
 const DescriptionWrapper = styled.div`
   height: 180px;
-  width: inherit;
+  width: 240px;
   background: rgba(0, 0, 0, 0.9);
   color: #fff;
   padding: 20px 10px;
@@ -46,7 +46,7 @@ const SubContent = styled.div`
 //   color: grey;
 //   margin-top: 6px;
 // `;
-function ImgCard({ src, title, description, episodes, score, date }) {
+function HomeImgCard({ src, title, description, episodes, score, date }) {
   const [isCardHovered, setHoverCard] = useState(false);
   return (
     <Card
@@ -73,4 +73,4 @@ function ImgCard({ src, title, description, episodes, score, date }) {
   );
 }
 
-export default ImgCard;
+export default HomeImgCard;
