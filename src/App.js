@@ -8,17 +8,21 @@ import Home from "./components/pages/Home/Home";
 import Movies from "./components/pages/Movies/Movies";
 import TvShows from "./components/pages/TvShows/TvShows"
 import Description from './components/pages/DescriptionCard/Description'
+import PageNotFound from "./components/pages/PageNotFound/PageNotFound";
+import HeroSection from "./components/HeroSection/HeroSection";
 function App() {
   
-
+  // document.addEventListener("touchstart", function(){}, true);
   return (
     <Router>
       <Navbar/>
+      <HeroSection />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/movies" component={Movies} />
-        <Route path="/tvshows" component={TvShows}/>
+        <Route path="/movies" exact component={Movies} />
+        <Route path="/tvshows" exact component={TvShows}/>
         <Route path="/description" component={Description}/>
+        <Route component={PageNotFound}/>
       </Switch>
       <Footer/>
     </Router>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import ImgCard from "../../ImgCard/ImgCard";
 import { Link } from 'react-router-dom';
-import HeroSection from "../../HeroSection/HeroSection";
+// import HeroSection from "../../HeroSection/HeroSection";
 
 const Wrapper = styled.div`
   margin-bottom: 150px;
@@ -26,12 +26,15 @@ const Container = styled.div`
      display: flex;
      flex-direction: column;
  `;
+ const StyledLink = styled(Link)`
+ text-decoration: none;
+`
 
 function TvShows() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://jikan1.p.rapidapi.com/producer/1/1', {
+    fetch('https://jikan1.p.rapidapi.com/genre/anime/1/2', {
       method: 'GET',
       headers: {
         'x-rapidapi-key': `${process.env.REACT_APP_API_K}`,
@@ -49,12 +52,11 @@ function TvShows() {
 
   return (
     <Wrapper>
-      <HeroSection></HeroSection>
       <Container>
       <Heading>TvShows</Heading>
       <ImgWrapper>
         {data.map((item) => (
-          <Link key={item.mal_id} style={{flex: "1 1 240px"}}>
+          <StyledLink key={item.mal_id} to="/description" style={{flex: "1 1 240px"}}>
             <ImgCard
               src={item.image_url}
               title={item.title}
@@ -63,7 +65,7 @@ function TvShows() {
               score={item.score}
               date={item.airing_start}
             />
-          </Link>
+          </StyledLink>
         ))}
       </ImgWrapper>
       </Container>

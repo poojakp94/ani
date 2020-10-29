@@ -36,6 +36,9 @@ const Director = styled.p`
 const Episodes = styled.p`
   font-size: 1rem;
 `;
+const Heading = styled.p`
+  color: gray;
+`
 function Description() {
   return (
     <Wrapper>
@@ -45,7 +48,8 @@ function Description() {
         <Synopsis>{data[0].description}</Synopsis>
         <Director>{data[0].director}</Director>
         <Episodes>{data[0].release_date}</Episodes>
-      </ContentWrapper>
+        <Heading>Work in progress .... :)</Heading>
+      </ContentWrapper> 
     </Wrapper>
   );
 }

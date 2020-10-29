@@ -3,7 +3,7 @@ import styled from "styled-components";
 import data from "./data";
 import ImgCard from "../../ImgCard/ImgCard";
 import { Link } from 'react-router-dom';
-import HeroSection from "../../HeroSection/HeroSection";
+// import HeroSection from "../../HeroSection/HeroSection";
 
 const Wrapper = styled.div`
     margin-bottom: 150px;
@@ -26,27 +26,28 @@ width: 100%;
      display: flex;
      flex-direction: column;
  `;
+ const StyledLink = styled(Link)`
+ text-decoration: none;
+`
 
 function Movies() {
   return (
         <Wrapper>
-              <HeroSection></HeroSection>
               <Container>
-                      <Heading>Studio Ghibli Films</Heading>
+                      <Heading>Movies</Heading>
                       <ImgWrapper>
                             {data.map((item) => (
-                                  <Link key={item.title} to="/description" style={{flex: "1 1 240px"}}>
+                                  <StyledLink key={item.title} to="/description" style={{flex: "1 1 240px"}}>
                                         <ImgCard
                                               src={item.img}
                                               title={item.title}
                                               description={item.description}
                                               date={item.release_date}
                                         />
-                                  </Link>
+                                  </StyledLink>
                             ))}
                       </ImgWrapper>
               </Container>
-              <Heading>Other Movies</Heading>
         </Wrapper>
   );
 }

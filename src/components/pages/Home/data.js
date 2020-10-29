@@ -26,7 +26,8 @@ export const MovieData = [
         director: "Hiromasa Yonebayashi",
         release_date: "2014",
         img: img1,
-        alt: "poster"
+        alt: "poster",
+        score: 7.82
     },
     {
         title: "The Tale of the Princess Kaguya",
@@ -34,7 +35,8 @@ export const MovieData = [
         director: "Isao Takahata",
         release_date: "2013",
         img: img2,
-        alt: "poster"
+        alt: "poster",
+        score: 8.82
     },
     {
         title: "The Wind Rises",
@@ -42,7 +44,8 @@ export const MovieData = [
         director: "Hayao Miyazaki",
         release_date: "2013",
         img: img3,
-        alt: "poster"
+        alt: "poster",
+        score: 7.8
     },
     {
         title: "From Up on Poppy Hill",
@@ -50,7 +53,8 @@ export const MovieData = [
         director: "Gorō Miyazaki",
         release_date: "2011",
         img: img4,
-        alt: "poster"
+        alt: "poster",
+        score: 8.2
     },
     {
         title: "Arrietty",
@@ -58,7 +62,8 @@ export const MovieData = [
         director: "Hiromasa Yonebayashi",
         release_date: "2010",
         img: img5,
-        alt: "poster"
+        alt: "poster",
+        score: 7.82
     },
     {
         title: "Ponyo",
@@ -66,7 +71,8 @@ export const MovieData = [
         director: "Hayao Miyazaki",
         release_date: "2008",
         img: img6,
-        alt: "poster"
+        alt: "poster",
+        score: 9.82
     },
     {
         title: "Tales from Earthsea",
@@ -74,7 +80,8 @@ export const MovieData = [
         director: "Gorō Miyazaki",
         release_date: "2006",
         img: img7,
-        alt: "poster"
+        alt: "poster",
+        score: 7.82
     },
     {
         title: "Howl's Moving Castle",
@@ -82,7 +89,8 @@ export const MovieData = [
         director: "Hayao Miyazaki",
         release_date: "2004",
         img: img8,
-        alt: "poster"
+        alt: "poster",
+        score: 7
     },
     {
         title: "The Cat Returns",
@@ -90,7 +98,8 @@ export const MovieData = [
         director: "Hiroyuki Morita",
         release_date: "2002",
         img: img9,
-        alt: "poster"
+        alt: "poster",
+        score: 7.82
     },
     {
         title: "Spirited Away",
@@ -98,7 +107,8 @@ export const MovieData = [
         director: "Hayao Miyazaki",
         release_date: "2001",
         img: img10,
-        alt: "poster"
+        alt: "poster",
+        score: 9
     },
     {
         title: "My Neighbors the Yamadas",
@@ -106,7 +116,8 @@ export const MovieData = [
         director: "Isao Takahata",
         release_date: "1999",
         img: img11,
-        alt: "poster"
+        alt: "poster",
+        score: 7.82
     },
     {
         title: "Princess Mononoke",
@@ -114,7 +125,8 @@ export const MovieData = [
         director: "Hayao Miyazaki",
         release_date: "1997",
         img: img12,
-        alt: "poster"
+        alt: "poster",
+        score: 8.2
     },
     {
         title: "Whisper of the Heart",
@@ -122,7 +134,8 @@ export const MovieData = [
         director: "Yoshifumi Kondō",
         release_date: "1995",
         img: img13,
-        alt: "poster"
+        alt: "poster",
+        score: 8.86
     },
     {
         title: "Pom Poko",
@@ -130,7 +143,8 @@ export const MovieData = [
         director: "Isao Takahata",
         release_date: "1994",
         img: img14,
-        alt: "poster"
+        alt: "poster",
+        score: 7.52
     },
     {
         title: "Porco Rosso",
@@ -138,7 +152,8 @@ export const MovieData = [
         director: "Hayao Miyazaki",
         release_date: "1992",
         img: img15,
-        alt: "poster"
+        alt: "poster",
+        score: 7.72
     },
     {
         title: "Only Yesterday",
@@ -146,7 +161,8 @@ export const MovieData = [
         director: "Isao Takahata",
         release_date: "1991",
         img: img16,
-        alt: "poster"
+        alt: "poster",
+        score: 7.82
     },
     {
         title: "Kiki's Delivery Service",
@@ -154,7 +170,8 @@ export const MovieData = [
         director: "Hayao Miyazaki",
         release_date: "1989",
         img: img17,
-        alt: "poster"
+        alt: "poster",
+        score: 8
     },
     {
         title: "My Neighbor Totoro",
@@ -162,7 +179,8 @@ export const MovieData = [
         director: "Hayao Miyazaki",
         release_date: "1988",
         img: img18,
-        alt: "poster"
+        alt: "poster",
+        score: 7.1
     },
     {
         title: "Grave of the Fireflies",
@@ -170,7 +188,8 @@ export const MovieData = [
         director: " Isao Takahata",
         release_date: "1988",
         img: img19,
-        alt: "poster"
+        alt: "poster",
+        score: 6.2
     },
     {
         title: "Castle in the Sky",
@@ -178,7 +197,8 @@ export const MovieData = [
         director: "Hayao Miyazaki",
         release_date: "1986",
         img: img20,
-        alt: "poster"
+        alt: "poster",
+        score: 8.9
     }
 ]
     
