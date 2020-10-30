@@ -24,6 +24,10 @@ const ImgWrapper = styled.div`
   display: flex;
   justify-content: center; 
   gap: 20px;
+  @media (max-width: 768px){
+    overflow-x: scroll;
+    justify-content: flex-start;
+  }
 `;
 const Heading = styled.p`
   font-size: 2rem;
