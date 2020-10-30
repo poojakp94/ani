@@ -62,7 +62,7 @@ function ImgCard({ src, title, description, episodes, score, date }) {
             <SubContent>
               <p>{date}</p>
             </SubContent>
-            <SubContent><span role="img">⭐</span>{score}</SubContent>
+            <SubContent><span role="img" aria-label="star">⭐</span>{score}</SubContent>
             {/* <Episodes>{episodes}</Episodes> */}
           </DescriptionWrapper>
         </>
