@@ -31,6 +31,7 @@ function Navbar() {
           <li className="nav-item">
             <NavLink
               to="/movies"
+              exact={true}
               activeClassName="is-active"
               className="nav-links"
               onClick={closeMobileMenu}>
@@ -40,6 +41,7 @@ function Navbar() {
           <li className="nav-item">
             <NavLink
               to="/tvshows"
+              exact={true}
               activeClassName="is-active"
               className="nav-links"
               onClick={closeMobileMenu}>

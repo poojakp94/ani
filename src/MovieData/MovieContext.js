@@ -1,27 +1,31 @@
-import img1 from  '../../../assets/GhibliFilms/img1.jpg';
-import img2 from  '../../../assets/GhibliFilms/img2.jpg';
-import img3 from  '../../../assets/GhibliFilms/img3.jpg';
-import img4 from  '../../../assets/GhibliFilms/img4.jpg';
-import img5 from  '../../../assets/GhibliFilms/img5.png';
-import img6 from  '../../../assets/GhibliFilms/img6.jpg';
-import img7 from  '../../../assets/GhibliFilms/img7.jpg';
-import img8 from  '../../../assets/GhibliFilms/img8.jpg';
-import img9 from  '../../../assets/GhibliFilms/img9.jpg';
-import img10 from  '../../../assets/GhibliFilms/img10.jpg';
-import img11 from  '../../../assets/GhibliFilms/img11.jpg';
-import img12 from  '../../../assets/GhibliFilms/img12.jpg';
-import img13 from  '../../../assets/GhibliFilms/img13.png';
-import img14 from  '../../../assets/GhibliFilms/img14.jpg';
-import img15 from  '../../../assets/GhibliFilms/img15.jpg';
-import img16 from  '../../../assets/GhibliFilms/img16.jpg';
-import img17 from  '../../../assets/GhibliFilms/img17.jpg';
-import img18 from  '../../../assets/GhibliFilms/img18.jpg';
-import img19 from  '../../../assets/GhibliFilms/img19.jpg';
-import img20 from  '../../../assets/GhibliFilms/img20.jpg';
- 
- 
- const StudioGhibliFilms = [
-    {
+import React, {createContext} from "react";
+import Section from "../components/HomeSection/Section";
+import img1 from  '../assets/GhibliFilms/img1.jpg';
+import img2 from  '../assets/GhibliFilms/img2.jpg';
+import img3 from  '../assets/GhibliFilms/img3.jpg';
+import img4 from  '../assets/GhibliFilms/img4.jpg';
+import img5 from  '../assets/GhibliFilms/img5.png';
+import img6 from  '../assets/GhibliFilms/img6.jpg';
+import img7 from  '../assets/GhibliFilms/img7.jpg';
+import img8 from  '../assets/GhibliFilms/img8.jpg';
+import img9 from  '../assets/GhibliFilms/img9.jpg';
+import img10 from  '../assets/GhibliFilms/img10.jpg';
+import img11 from  '../assets/GhibliFilms/img11.jpg';
+import img12 from  '../assets/GhibliFilms/img12.jpg';
+import img13 from  '../assets/GhibliFilms/img13.png';
+import img14 from  '../assets/GhibliFilms/img14.jpg';
+import img15 from  '../assets/GhibliFilms/img15.jpg';
+import img16 from  '../assets/GhibliFilms/img16.jpg';
+import img17 from  '../assets/GhibliFilms/img17.jpg';
+import img18 from  '../assets/GhibliFilms/img18.jpg';
+import img19 from  '../assets/GhibliFilms/img19.jpg';
+import img20 from  '../assets/GhibliFilms/img20.jpg';
+
+export const MovieContext = createContext();
+
+export const MovieProvider = ()=> {
+    const data = [
+        {
         title: "When Marnie Was There",
         description: "The film follows Anna Sasaki living with her relatives in the seaside town. Anna comes across a nearby abandoned mansion, where she meets Marnie, a mysterious girl who asks her to promise to keep their secrets from everyone. As the summer progresses, Anna spends more time with Marnie, and eventually Anna learns the truth about her family and foster care.",
         director: "Hiromasa Yonebayashi",
@@ -201,6 +205,12 @@ import img20 from  '../../../assets/GhibliFilms/img20.jpg';
         alt: "poster",
         score: 8.9
     }
-]
+];
 
-export default StudioGhibliFilms;
+
+    return (
+        <MovieContext.Provider value={data}>
+            <Section title="Movies" to="/movies"/>
+        </MovieContext.Provider>
+    )
+}
