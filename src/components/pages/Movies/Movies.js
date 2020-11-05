@@ -1,9 +1,8 @@
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
-import data from "./data";
 import ImgCard from "../../ImgCard/ImgCard";
 import { Link } from 'react-router-dom';
-// import HeroSection from "../../HeroSection/HeroSection";
+import {MovieContext} from "../../../MovieData/MovieContext"
 
 const Wrapper = styled.div`
     margin-bottom: 150px;
@@ -31,24 +30,27 @@ width: 100%;
 `
 
 function Movies() {
+const data = useContext(MovieContext);
   return (
-        <Wrapper>
+      <Wrapper>
               <Container>
                       <Heading>Movies</Heading>
                       <ImgWrapper>
-                            {data.map((item) => (
-                                  <StyledLink key={item.title} to="/description" style={{flex: "1 1 240px"}}>
+                            {(data).map((item) => (
+                                  <StyledLink key={item.title} to="movies/description/:tvshowsId" style={{flex: "1 1 240px"}}>  
                                         <ImgCard
-                                              src={item.img}
+                                              src={item.image_url}
                                               title={item.title}
-                                              description={item.description}
-                                              date={item.release_date}
+                                              description={item.synopsis}
+                                              date={item.airing_start}
+                                              score={item.score}
                                         />
                                   </StyledLink>
                             ))}
                       </ImgWrapper>
+                      
               </Container>
-        </Wrapper>
+      </Wrapper>
   );
 }
 

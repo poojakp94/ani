@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from 'styled-components';
 import ImgCard from "../../ImgCard/ImgCard";
 import { Link } from 'react-router-dom';
 // import HeroSection from "../../HeroSection/HeroSection";
-
+import {TvShowsContext} from "../../../TvShowsData/TvShowsContext";
 const Wrapper = styled.div`
   margin-bottom: 150px;
 `;
@@ -31,32 +31,14 @@ const Container = styled.div`
 `
 
 function TvShows() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    fetch('https://jikan1.p.rapidapi.com/genre/anime/1/2', {
-      method: 'GET',
-      headers: {
-        'x-rapidapi-key': `${process.env.REACT_APP_API_K}`,
-        'x-rapidapi-host': 'jikan1.p.rapidapi.com',
-      },
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => setData(data.anime))
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
+  const data = useContext(TvShowsContext);
   return (
     <Wrapper>
       <Container>
       <Heading>TvShows</Heading>
       <ImgWrapper>
         {data.map((item) => (
-          <StyledLink key={item.mal_id} to="/description" style={{flex: "1 1 240px"}}>
+          <StyledLink key={item.mal_id} to="tvshows/description/:movieId" style={{flex: "1 1 240px"}}>
             <ImgCard
               src={item.image_url}
               title={item.title}

@@ -1,9 +1,9 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import HomeImgCard from '../HomeImgCard/HomeImgCard';
 // import useWindowSize from '../WindowSize/windowSize';
 import {Link } from "react-router-dom";
-import {MovieContext} from "../../MovieData/MovieContext"
+
 
 const Wrapper = styled.div`
   width: 100%;
@@ -68,7 +68,7 @@ const SeeMoreLink = styled(Link)`
   
 
 const Section = ({title, data, to}) => {
-  const movieData = useContext(MovieContext);
+  
   // console.log(data)
   // const [itemToDisplay, setItemToDisplay] = useState(6);
   // const [startIndex, setStartIndex] = useState(0);
@@ -124,13 +124,13 @@ const Section = ({title, data, to}) => {
       <SeeMoreLink to={to}>See more</SeeMoreLink>
       </div>
         <ImgWrapper>
-          {((data || movieData).slice(0, 5)).map((item) => (
+          {((data).slice(0, 5)).map((item) => (
             <StyledLink to="/description" key={item.title}>
               <HomeImgCard
-                src={item.img}
+                src={item.image_url}
                 title={item.title}
-                description={item.description}
-                date={item.release_date}
+                description={item.synopsis}
+                date={item.airing_start}
                 score={item.score}
               />
             </StyledLink>

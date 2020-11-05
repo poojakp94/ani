@@ -60,7 +60,7 @@ function HomeImgCard({ src, title, description, episodes, score, date }) {
             <Title>{title}</Title>
             <Description>{description}</Description>
             <SubContent>
-              <p>{date}</p>
+              <p>{new Date(date).getFullYear()}</p>
             </SubContent>
             <SubContent><span role="img" aria-label="star">⭐</span>{score}</SubContent>
             {/* <Episodes>{episodes}</Episodes> */}

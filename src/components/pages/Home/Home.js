@@ -1,18 +1,16 @@
-import React from "react";
-import {TvShowsData} from "./data";
-import Section from "../../HomeSection/Section"
-import { MovieProvider} from "../../../MovieData/MovieContext"
-
-
+import React, { useContext } from "react";
+import Section from "../../HomeSection/Section";
+import { MovieContext } from "../../../MovieData/MovieContext";
+import {TvShowsContext} from "../../../TvShowsData/TvShowsContext"
 
 function Home() {
+  const movieData = useContext(MovieContext);
+  const TvShowsData = useContext(TvShowsContext);
+  
   return (
-    <div style={{marginBottom: '125px'}}>
-      <MovieProvider>
-      <Section />
-      </MovieProvider>
-      <Section title="TvShows" data={TvShowsData} to="/TvShows">
-      </Section>
+    <div style={{ marginBottom: "125px" }}>
+      <Section title="Movies" data={movieData} to="/Movies" />
+      <Section title="TvShows" data={TvShowsData} to="/TvShows" />
     </div>
   );
 }
