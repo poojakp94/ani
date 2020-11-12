@@ -8,6 +8,7 @@ const FooterWrap = styled.footer`
   background:  #1B2530;
   color: #fff;
   text-align: center;
+  flex: none;
 `;
 const Title = styled.p`
   font-family: "Lobster", cursive;

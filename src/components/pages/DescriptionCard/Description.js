@@ -1,55 +1,66 @@
-import React from "react";
+import React, {useContext} from "react";
 import styled from "styled-components";
-// import data from "../Movies/data";
+import {useParams, useLocation} from "react-router-dom";
+import {MovieContext} from "../../../MovieData/MovieContext"
+import {TvShowsContext} from "../../../TvShowsData/TvShowsContext"
+import { useState } from "react";
 
 const Wrapper = styled.div`
   height: 100%;
   display: flex;
   gap: 20px;
   padding: 20px;
-  @media (max-width: 768px) {
-    // flex-direction: column;
-  }
-  @media (max-width: 411px) {
+  flex: 1;
+  @media (max-width: 415px) {
     flex-direction: column;
   }
 `;
-// const Img = styled.img`
-//   height: 500px;
-//   justify-self: right;
-// `;
+const Img = styled.img`
+  height: 400px;
+  width: auto;
+`;
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 20px;
 `;
-// const Title = styled.p`
-//   font-size: 1.2rem;
-// `;
-// const Synopsis = styled.p`
-//   font-size: 1rem;
-// `;
-// const Director = styled.p`
-//   font-size: 1rem;
-// `;
-// const Episodes = styled.p`
-//   font-size: 1rem;
-// `;
-// const Heading = styled.p`
-//   color: gray;
-// `
+const Title = styled.p`
+  font-size: 1.2rem;
+`;
+
+const SubContent = styled.p`
+  font-size: 1rem;
+`;
+
+
 function Description() {
+  const [isItemFound, setItemFound] = useState(true);
+  let {id} = useParams();
+  const location = useLocation();
+  // console.log(TvShowsContext)
+  const data = useContext( ((location.pathname).includes("movies")) ? MovieContext : TvShowsContext);
+  // console.log(id);
+  
+   let found = data.find(item => Number(item.mal_id) === Number(id));
+  //  console.log(found)
+    if(!found){ setItemFound(false)}
+  
+  // console.log(isItemFound)
   return (
     <Wrapper>
-      {/* <Img src={data[0].img} alt="img"></Img> */}
+      {isItemFound ? <>
+      <Img src={found.image_url} alt="img"></Img>
       <ContentWrapper>
-        {/* <Title>{data[0].title}</Title>
-        <Synopsis>{data[0].description}</Synopsis>
-        <Director>{data[0].director}</Director>
-        <Episodes>{data[0].release_date}</Episodes>
-        <Heading>Work in progress .... :)</Heading> */}
-      </ContentWrapper> 
+        <Title>Title: {found.title}</Title>
+        <p>Synopsis</p><hr />
+        <p>{found.synopsis}</p>
+        <SubContent>Episodes: {found.episodes}</SubContent>
+        <SubContent>Aired: {new Date(found.airing_start).getFullYear()}</SubContent>
+        <SubContent>Rating: {found.score}</SubContent>
+        <SubContent>Type: {found.type}</SubContent>
+      </ContentWrapper></> : 
+      <p> item is not available</p>
+      }
     </Wrapper>
   );
 }
