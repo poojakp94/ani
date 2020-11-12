@@ -8,5 +8,12 @@
 body {
     background-color: #0F171E;
     color: #fff;
-    /* overflow-x: hidden; */
+    overflow-x: hidden;
+    height: 100%;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }

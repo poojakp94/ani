@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./App.css";
 import Navbar from "./components/NavBar/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -9,23 +9,55 @@ import Movies from "./components/pages/Movies/Movies";
 import TvShows from "./components/pages/TvShows/TvShows"
 import Description from './components/pages/DescriptionCard/Description'
 import PageNotFound from "./components/pages/PageNotFound/PageNotFound";
-import HeroSection from "./components/HeroSection/HeroSection";
+import { MovieContext, data } from "./MovieData/MovieContext";
+import {TvShowsContext}  from "./TvShowsData/TvShowsContext"
+
 function App() {
-  
-  // document.addEventListener("touchstart", function(){}, true);
+  const [tvShowsData, setTvShowsData] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  useEffect(() => {
+    setLoading(true);
+    fetch('https://jikan1.p.rapidapi.com/genre/anime/1/2', {
+      method: 'GET',
+      headers: {
+        'x-rapidapi-key': `${process.env.REACT_APP_API_K}`,
+        'x-rapidapi-host': 'jikan1.p.rapidapi.com',
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setTvShowsData(data.anime)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(()=> { setLoading(false)});
+  }, []);
+  // if(!tvShowsData.length) return <p>Loading....</p>
   return (
+    <div className="app"> 
     <Router>
       <Navbar/>
-      <HeroSection />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/movies" exact component={Movies} />
-        <Route path="/tvshows" exact component={TvShows}/>
-        <Route path="/description" component={Description}/>
-        <Route component={PageNotFound}/>
-      </Switch>
+      {isLoading ? <div style={{color: "#333"}}>is Loading....</div> : 
+      <MovieContext.Provider value={data}>
+        {/* {console.log(tvShowsData)} */}
+      <TvShowsContext.Provider value={tvShowsData}>
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/movies" exact component={Movies} />
+                <Route path="/tvshows" exact component={TvShows} />
+                <Route path="/movies/description/:id" component={Description} exact/>
+                <Route path="/tvshows/description/:id" component={Description} exact/>
+                <Route component={PageNotFound} />
+              </Switch>
+      </TvShowsContext.Provider>
+      </MovieContext.Provider>
+}
       <Footer/>
     </Router>
+    </div>
   );
 }
 
