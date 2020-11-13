@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import "./App.css";
 import Navbar from "./components/NavBar/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
 import Footer from "./components/Footer/Footer";
 import Home from "./components/pages/Home/Home";
 import Movies from "./components/pages/Movies/Movies";
@@ -35,14 +34,13 @@ function App() {
       })
       .finally(()=> { setLoading(false)});
   }, []);
-  // if(!tvShowsData.length) return <p>Loading....</p>
+
   return (
     <div className="app"> 
     <Router>
       <Navbar/>
       {isLoading ? <div style={{color: "#333"}}>is Loading....</div> : 
       <MovieContext.Provider value={data}>
-        {/* {console.log(tvShowsData)} */}
       <TvShowsContext.Provider value={tvShowsData}>
               <Switch>
                 <Route path="/" exact component={Home} />
@@ -54,7 +52,7 @@ function App() {
               </Switch>
       </TvShowsContext.Provider>
       </MovieContext.Provider>
-}
+    }
       <Footer/>
     </Router>
     </div>
