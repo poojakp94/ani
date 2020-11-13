@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {useParams, useLocation} from "react-router-dom";
 import {MovieContext} from "../../../MovieData/MovieContext"
 import {TvShowsContext} from "../../../TvShowsData/TvShowsContext"
-import { useState } from "react";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -15,6 +14,10 @@ const Wrapper = styled.div`
     flex-direction: column;
   }
 `;
+const ErrorWrapper = styled(Wrapper)`
+  display: block;
+  text-align: center;
+`
 const Img = styled.img`
   height: 400px;
   width: auto;
@@ -34,21 +37,14 @@ const SubContent = styled.p`
 
 
 function Description() {
-  const [isItemFound, setItemFound] = useState(true);
   let {id} = useParams();
   const location = useLocation();
-  // console.log(TvShowsContext)
   const data = useContext( ((location.pathname).includes("movies")) ? MovieContext : TvShowsContext);
-  // console.log(id);
+  let found = data.find(item => Number(item.mal_id) === Number(id));
   
-   let found = data.find(item => Number(item.mal_id) === Number(id));
-  //  console.log(found)
-    if(!found){ setItemFound(false)}
-  
-  // console.log(isItemFound)
   return (
     <Wrapper>
-      {isItemFound ? <>
+      {found ? <>
       <Img src={found.image_url} alt="img"></Img>
       <ContentWrapper>
         <Title>Title: {found.title}</Title>
@@ -59,7 +55,7 @@ function Description() {
         <SubContent>Rating: {found.score}</SubContent>
         <SubContent>Type: {found.type}</SubContent>
       </ContentWrapper></> : 
-      <p> item is not available</p>
+      <ErrorWrapper> 404 Item not found!</ErrorWrapper>
       }
     </Wrapper>
   );
