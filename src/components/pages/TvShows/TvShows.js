@@ -4,17 +4,13 @@ import ImgCard from "../../ImgCard/ImgCard";
 import { Link } from 'react-router-dom';
 import HeroSection from "../../HeroSection/HeroSection";
 import {TvShowsContext} from "../../../TvShowsData/TvShowsContext";
-import img1 from "../../../assets/carousel/bungo.jpg";
-import img2 from "../../../assets/carousel/tokyo-ghoul.jpg";
-import img3 from "../../../assets/carousel/yona.jpg";
-import img4 from "../../../assets/carousel/bahamut.jpg";
-import img5 from "../../../assets/carousel/91days.jpg";
-import img6 from "../../../assets/carousel/psycho.jpg";
-import img7 from "../../../assets/carousel/banana-fish.jpg";
-import img8 from "../../../assets/carousel/trigun.jpg"
+
 const Wrapper = styled.div`
   margin-bottom: 120px;
   flex:1;
+  @media(max-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 const Heading = styled.div`
   font-size: 2rem;
@@ -41,14 +37,14 @@ const Container = styled.div`
 
 function TvShows() {
   const items = [
-    { id: 1, img: img1 },
-    { id: 2, img: img2 },
-    { id: 3, img: img3 },
-    { id: 4, img: img4 },
-    { id: 5, img: img5 },
-    { id: 6, img: img6 },
-    { id: 7, img: img7 },
-    { id: 8, img: img8 }
+    { id: 1, img: "https://firebasestorage.googleapis.com/v0/b/photo-storage-9945c.appspot.com/o/gate2.jpg?alt=media&token=321b3d25-86c1-4829-a845-d133df0d1e87" },
+    { id: 2, img: "https://firebasestorage.googleapis.com/v0/b/photo-storage-9945c.appspot.com/o/bungo.jpg?alt=media&token=cf556fe3-af7e-468e-8711-ec85807cb3e2" },
+    { id: 3, img: "https://firebasestorage.googleapis.com/v0/b/photo-storage-9945c.appspot.com/o/yona.jpg?alt=media&token=2381ca4d-6e8c-44a2-addc-d17402cd58b6" },
+    { id: 4, img: "https://firebasestorage.googleapis.com/v0/b/photo-storage-9945c.appspot.com/o/gangsta.jpg?alt=media&token=0cbdf017-5681-4331-bbdd-178016b26d5c" },
+    { id: 5, img: "https://firebasestorage.googleapis.com/v0/b/photo-storage-9945c.appspot.com/o/strike-the-blood.jpg?alt=media&token=3c1abaa9-d45a-4a37-a615-e0d191237a05" },
+    { id: 6, img: "https://firebasestorage.googleapis.com/v0/b/photo-storage-9945c.appspot.com/o/psycho.jpg?alt=media&token=b24ab4df-4a6b-4ae2-9e76-488420d153d0" },
+    { id: 7, img: "https://firebasestorage.googleapis.com/v0/b/photo-storage-9945c.appspot.com/o/trigun.jpg?alt=media&token=e841227c-0608-42e9-a4fd-f2f989e467e6" },
+    { id: 8, img: "https://firebasestorage.googleapis.com/v0/b/photo-storage-9945c.appspot.com/o/banana-fish.jpg?alt=media&token=d3fbd567-0402-4ad8-a5a4-b86d95f18def" }
     ]
   const data = useContext(TvShowsContext);
   return (

@@ -9,7 +9,8 @@ import TvShows from "./components/pages/TvShows/TvShows"
 import Description from './components/pages/DescriptionCard/Description'
 import PageNotFound from "./components/pages/PageNotFound/PageNotFound";
 import { MovieContext, data } from "./MovieData/MovieContext";
-import {TvShowsContext}  from "./TvShowsData/TvShowsContext"
+import {TvShowsContext}  from "./TvShowsData/TvShowsContext";
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const [tvShowsData, setTvShowsData] = useState([]);
@@ -39,7 +40,7 @@ function App() {
     <div className="app"> 
     <Router>
       <Navbar/>
-      {isLoading ? <div style={{color: "#333"}}>is Loading....</div> : 
+      {isLoading ? <div style={{display: "flex", flex: "1", justifyContent: "center", alignItems: "center"}}><Loader /></div> : 
       <MovieContext.Provider value={data}>
       <TvShowsContext.Provider value={tvShowsData}>
               <Switch>
