@@ -45,7 +45,7 @@ function Description() {
   return (
     <Wrapper>
       {found ? <>
-      <Img src={found.image_url} alt="img"></Img>
+      <Img src={found.image_url} alt="img" loading="lazy"></Img>
       <ContentWrapper>
         <Title>Title: {found.title}</Title>
         <p>Synopsis</p><hr />

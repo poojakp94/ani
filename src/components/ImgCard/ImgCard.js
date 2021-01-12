@@ -56,7 +56,7 @@ function ImgCard({ src, title, description, episodes, score, date }) {
     >
       {isCardHovered ? (
         <>
-          <Img src={src} alt="img"></Img>
+          <Img src={src} alt="img" loading="lazy"></Img>
           <DescriptionWrapper>
             <Title>{title}</Title>
             <Description>{description}</Description>
@@ -68,7 +68,7 @@ function ImgCard({ src, title, description, episodes, score, date }) {
           </DescriptionWrapper>
         </>
       ) : (
-        <Img src={src} alt="img"></Img>
+        <Img src={src} alt="img" loading="lazy"></Img>
       )}
     </Card>
   );
