@@ -2,9 +2,6 @@
 
 # DeepDiveAnime
 
-### Deployed link: https://deepdiveanime.com/
-
-
 ![screenshot-1](./src/assets/DeepDiveAnime-1.png)
 
 
